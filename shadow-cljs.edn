@@ -1,0 +1,17 @@
+{:source-paths ["src"]
+ :dependencies [[cider/cider-nrepl "0.18.0"]
+                [org.clojure/tools.nrepl "0.2.13"]
+                [lilactown/hx "0.2.3"]
+                [re-frame "0.10.6" :exclusions [reagent]]
+                [reagent "0.7.0" :exclusions [cljsjs/react
+                                              cljsjs/react-dom
+                                              cljsjs/react-dom-server
+                                              cljsjs/create-react-class]]]
+ :builds {:app {:output-dir "target/"
+                :asset-path "."
+                :target :browser
+                :modules {:main {:entries [app]}}
+                :devtools {:after-load app/reload!
+                           :http-root "target"
+                           :http-port 8080}
+                :release {:output-dir "dist/"}}}}
