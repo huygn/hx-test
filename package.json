@@ -3,15 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "shadow-cljs watch app",
     "prestart": "npm run assets",
+    "start": "shadow-cljs watch app",
     "compile": "shadow-cljs compile app",
     "release": "shadow-cljs release app",
     "assets": "mkdir -p target && cp -R assets/* target/",
-    "assets:release": "mkdir -p dist && cp -R assets/* dist/",
-    "serve": "npm run assets:release && http-server dist/",
+    "serve": "http-server dist/",
     "del": "rm -r target/*",
-    "build": "npm run release && npm run serve"
+    "build": "npm run release && npm run serve",
+    "postbuild": "mkdir -p dist && cp -R assets/* dist/"
   },
   "author": "",
   "license": "MIT",
