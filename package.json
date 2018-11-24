@@ -1,16 +1,17 @@
 {
-  "name": "minimal-shadow-cljs-browser",
+  "name": "hx-test",
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "shadow-cljs watch app",
+    "start": "shadow-cljs watch app",
+    "prestart": "npm run assets",
     "compile": "shadow-cljs compile app",
     "release": "shadow-cljs release app",
     "assets": "mkdir -p target && cp -R assets/* target/",
     "assets:release": "mkdir -p dist && cp -R assets/* dist/",
-    "serve": "yarn assets:release && http-server dist/",
+    "serve": "npm run assets:release && http-server dist/",
     "del": "rm -r target/*",
-    "build": "yarn release && yarn serve"
+    "build": "npm run release && npm run serve"
   },
   "author": "",
   "license": "MIT",
